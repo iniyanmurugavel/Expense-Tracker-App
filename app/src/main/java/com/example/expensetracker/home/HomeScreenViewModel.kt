@@ -40,28 +40,7 @@ class HomeScreenViewModel(dao: ExpenseDao):ViewModel() {
         }
         return Utils.formatToDecimalValue(total)
     }
-    fun getItemIcon(item: ExpenseEntity): Int {
-        if(item.category == "Salary"){
-            return R.drawable.ic_paypal
-        }
-        else if(item.category == "Netflix"){
-            return R.drawable.ic_netflix
-        }
-        else if(item.category == "Upwork"){
-            return R.drawable.ic_upwork
-        }
-        else if(item.category == "Starbucks"){
-            return R.drawable.ic_starbucks
-        }
-        else if(item.category == "Youtube"){
-            return R.drawable.ic_youtube
-        }
-        else if(item.category == "Other") {
-            if (item.type == "Income")
-                return R.drawable.ic_income
-        }
-        return R.drawable.ic_expense
-    }
+
 }
 
 class HomeViewModelFactory(private val context: Context): ViewModelProvider.Factory{

@@ -48,6 +48,7 @@ import com.example.expensetracker.navigation.ScreenRoute
 import com.example.expensetracker.data.ExpenseEntity
 import com.example.expensetracker.widget.ExpenseText
 import com.example.expensetracker.ui.theme.Zinc
+import com.example.expensetracker.widget.Utils
 
 
 @Composable
@@ -106,7 +107,7 @@ fun HomeScreen(navController: NavController) {
                     bottom.linkTo(parent.bottom)
                     height = Dimension.fillToConstraints
                 },
-                list = state.value,viewModel
+                list = state.value,
             )
             Box(
                 modifier = Modifier
@@ -136,16 +137,18 @@ fun HomeScreen(navController: NavController) {
 
 
 @Composable
-fun TransactionList(modifier: Modifier, list : List<ExpenseEntity>, viewModel: HomeScreenViewModel) {
+fun TransactionList(modifier: Modifier, list : List<ExpenseEntity>, title: String = "Recent Transactions") {
     LazyColumn(modifier = modifier.padding(horizontal = 16.dp)) {
         item {
             Box(modifier = Modifier.fillMaxWidth()) {
-                ExpenseText(text = "Recent Transactions", fontSize = 20.sp)
-                ExpenseText(
-                    text = "See All",
-                    fontSize = 16.sp,
-                    modifier = Modifier.align(Alignment.CenterEnd)
-                )
+                ExpenseText(text = title, fontSize = 20.sp)
+                if(title == "Recent Transactions") {
+                    ExpenseText(
+                        text = "See All",
+                        fontSize = 16.sp,
+                        modifier = Modifier.align(Alignment.CenterEnd)
+                    )
+                }
             }
             Spacer(modifier = Modifier.size(8.dp))
         }
@@ -153,7 +156,7 @@ fun TransactionList(modifier: Modifier, list : List<ExpenseEntity>, viewModel: H
             TransactionItem(
                 title = item.title,
                 amount = item.amount.toString(),
-                icon = viewModel.getItemIcon(item),
+                icon = Utils.getItemIcon(item),
                 date = item.date,
                 color = if(item.type == "Income") Color.Green else Color.Red,
                 Modifier

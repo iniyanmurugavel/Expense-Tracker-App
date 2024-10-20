@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.constraintlayout)
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
@@ -61,6 +62,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.8.3")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     //for stats and chart
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
