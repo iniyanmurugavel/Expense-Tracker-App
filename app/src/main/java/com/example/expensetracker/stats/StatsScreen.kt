@@ -1,6 +1,7 @@
 package com.example.expensetracker.stats
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,7 +32,9 @@ fun StatsScreen(navController: NavController) {
             Image(
                 painter = painterResource(id = R.drawable.ic_back),
                 contentDescription = null,
-                modifier = Modifier.align(Alignment.CenterStart),
+                modifier = Modifier.align(Alignment.CenterStart).clickable{
+                    navController.popBackStack()
+                },
                 colorFilter = ColorFilter.tint(Color.Black)
             )
             ExpenseText(

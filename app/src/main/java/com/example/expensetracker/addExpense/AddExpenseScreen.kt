@@ -80,7 +80,11 @@ fun AddExpenseScreen(navController: NavController){
                 }){
                 Image(painter = painterResource(id = R.drawable.ic_back),
                     contentDescription = null,
-                    modifier = Modifier.align(Alignment.CenterStart)
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .clickable{
+                            navController.popBackStack()
+                        }
                 )
                 ExpenseText(text ="Add Expense",
                     fontSize = 20.sp,
