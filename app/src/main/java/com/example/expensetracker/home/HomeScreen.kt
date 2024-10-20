@@ -125,9 +125,9 @@ fun HomeScreen(navController: NavController) {
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(R.drawable.ic_addbutton),
+                    painter = painterResource(R.drawable.ic_add),
                     contentDescription = "small floating action button",
-                    modifier = Modifier.size(40.dp)
+                    modifier = Modifier.size(45.dp)
                 )
             }
         }
