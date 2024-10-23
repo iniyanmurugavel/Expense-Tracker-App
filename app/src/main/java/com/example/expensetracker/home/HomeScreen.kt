@@ -77,8 +77,8 @@ fun HomeScreen(navController: NavController) {
                     end.linkTo(parent.end)
                 }) {
                 Column(modifier = Modifier.align(Alignment.CenterStart)) {
-                    ExpenseText(text = "Hello,", fontSize = 18.sp,color = Color.White)
-                    ExpenseText(text = "Abhinn Agrawal", fontSize = 24.sp,color = Color.White, fontWeight = FontWeight.Bold)
+                    ExpenseText(text = "Hello,", fontSize = 18.sp,color = Color.White,fontWeight = FontWeight.Bold)
+                    ExpenseText(text = "Welcome back", fontSize = 24.sp,color = Color.White, fontWeight = FontWeight.Bold)
                 }
                 Image(
                     painter = painterResource(id = R.drawable.ic_notification),

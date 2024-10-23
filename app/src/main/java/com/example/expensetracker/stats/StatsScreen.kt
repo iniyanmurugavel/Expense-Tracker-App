@@ -49,7 +49,7 @@ fun StatsScreen(navController: NavController) {
                 modifier = Modifier
                     .align(Alignment.CenterStart)
                     .clickable {
-                        navController.popBackStack()
+                        navController.navigateUp()
                     },
                 colorFilter = ColorFilter.tint(Color.Black)
             )
@@ -70,8 +70,8 @@ fun StatsScreen(navController: NavController) {
         }
     }) {
         val viewModel = StatsViewModelFactory(navController.context).create(StatsViewModel::class.java)
-        val dataState = viewModel.entries.collectAsState(initial = emptyList())
-        val topExpenses = viewModel.topEntries.collectAsState(initial = emptyList())
+        val dataState = viewModel.expenseEntries.collectAsState(initial = emptyList())
+        val topExpenses = viewModel.topExpenseEntries.collectAsState(initial = emptyList())
         Column(modifier = Modifier.padding(it)) {
             val entries = viewModel.getEntriesForChart(dataState.value)
             LineChart(entries = entries)

@@ -11,8 +11,8 @@ import com.example.expensetracker.widget.Utils
 import com.github.mikephil.charting.data.Entry
 
 class StatsViewModel(dao: ExpenseDao):ViewModel() {
-    val entries = dao.getAllExpenseByDate()
-    val topEntries = dao.getTopExpenses()
+    val expenseEntries = dao.getAllExpenseByDate()
+    val topExpenseEntries = dao.getTopExpenses()
     fun getEntriesForChart(entries: List<ExpenseSummary>): List<Entry> {
         val list = mutableListOf<Entry>()
         for (entry in entries) {
@@ -21,6 +21,9 @@ class StatsViewModel(dao: ExpenseDao):ViewModel() {
         }
         return list
     }
+
+    val incomeEntries = dao.getAllIncomeByDate()
+    val topIncomeEntries = dao.getTopIncome()
 }
 
 class StatsViewModelFactory(private val context: Context): ViewModelProvider.Factory{

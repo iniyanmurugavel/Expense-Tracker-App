@@ -53,6 +53,8 @@ object Utils {
         else if(item.category == "Other") {
             if (item.type == "Income")
                 return R.drawable.ic_income
+            else if(item.type == "Expense")
+                return R.drawable.ic_expense
         }
         return R.drawable.ic_expense
     }
