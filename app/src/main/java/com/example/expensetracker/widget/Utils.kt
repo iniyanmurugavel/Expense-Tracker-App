@@ -35,27 +35,28 @@ object Utils {
     }
 
     fun getItemIcon(item: ExpenseEntity): Int {
-        if(item.category == "Salary"){
-            return R.drawable.ic_paypal
+        when (item.category) {
+            "Salary" -> {
+                return R.drawable.ic_paypal
+            }
+            "Netflix" -> {
+                return R.drawable.ic_netflix
+            }
+            "Upwork" -> {
+                return R.drawable.ic_upwork
+            }
+            "Starbucks" -> {
+                return R.drawable.ic_starbucks
+            }
+            "Youtube" -> {
+                return R.drawable.ic_youtube
+            }
+            "Other" -> {
+                if(item.type == "Expense")
+                return R.drawable.ic_expense_black
+            }
+            else -> return R.drawable.ic_income_black
         }
-        else if(item.category == "Netflix"){
-            return R.drawable.ic_netflix
-        }
-        else if(item.category == "Upwork"){
-            return R.drawable.ic_upwork
-        }
-        else if(item.category == "Starbucks"){
-            return R.drawable.ic_starbucks
-        }
-        else if(item.category == "Youtube"){
-            return R.drawable.ic_youtube
-        }
-        else if(item.category == "Other") {
-            if (item.type == "Income")
-                return R.drawable.ic_income
-            else if(item.type == "Expense")
-                return R.drawable.ic_expense
-        }
-        return R.drawable.ic_expense
+        return R.drawable.ic_expense_black
     }
 }
